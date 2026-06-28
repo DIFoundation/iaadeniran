@@ -1,5 +1,32 @@
 [
   {
+    "image": "Assets/images/project9.png",
+    "title": "FaucetDrops",
+    "description": "A website for Blockchain Community LAUTECH.",
+    "link": {
+      "repo": "https://github.com/DIFoundation/faucetdropnew",
+      "website": "https://faucetdrops.io/s"
+    }
+  },
+  {
+    "image": "Assets/images/project8.png",
+    "title": "Web3Commerce",
+    "description": "A decentralized multi-vendor marketplace that receive payments in crypto through a secure escrow system.",
+    "link": {
+      "repo": "https://github.com/DIFoundation/web3commerce",
+      "website": "https://web3commerce-beta.vercel.app/"
+    }
+  },
+  {
+    "image": "Assets/images/project7.png",
+    "title": "BCL Website",
+    "description": "A website for Blockchain Community LAUTECH.",
+    "link": {
+      "repo": "https://github.com/DIFoundation/BCL-website",
+      "website": "https://blockchainlautechclub.vercel.app/"
+    }
+  },
+  {
     "image": "Assets/images/project6.png",
     "title": "Cartify",
     "description": "A functional shopping cart with coupon discounts and persistent storage.",
