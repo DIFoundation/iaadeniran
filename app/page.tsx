@@ -40,7 +40,7 @@ const projects = [
     description: "Building frontend experiences for a Web3 product, including a Gemini-powered support chatbot and Telegram handoff.",
     stack: ["Next.js", "TypeScript", "Gemini API"],
     repo: "https://github.com/DIFoundation/faucetdropnew",
-    live: "https://faucetdrops.io/s",
+    live: "https://faucetdrops.io/",
     tone: "orange",
     symbol: "✳",
     featured: true
@@ -87,18 +87,21 @@ const expertise = [
   { number: "03", title: "Product thinking", text: "From a rough idea to a usable product flow: clarify the problem, reduce friction, and ship in focused iterations.", icon: Layers3, tags: "Prototyping · UX · Collaboration" }
 ];
 
-const nav = [{label:"Work",href:"#work"},{label:"Approach",href:"#approach"},{label:"About",href:"#about"}];
+const nav = [{ label: "Work", href: "#work" }, { label: "Approach", href: "#approach" }, { label: "About", href: "#about" }];
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeProject, setActiveProject] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
+  const [currentYear, setCurrentYear] = useState(2026);
   const reducedMotion = useReducedMotion();
   const { scrollYProgress } = useScroll();
   const progressScale = useTransform(scrollYProgress, [0, 1], [0, 1]);
   const active = projects.find((project) => project.name === activeProject);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setCurrentYear(new Date().getFullYear());
     const reveal = () => {
       document.querySelectorAll<HTMLElement>("[data-reveal]").forEach((node) => {
         const top = node.getBoundingClientRect().top;
@@ -160,7 +163,7 @@ export default function Home() {
       </section>
 
       <section className="intro-band">
-        <div className="section-shell intro-inner" data-reveal><p className="eyebrow">THE SHORT VERSION</p><p className="intro-statement">I work at the intersection of <em>craft</em> and <em>systems</em> — shaping the experience people touch and the technology that makes it work.</p><a href="#about" className="text-link">A LITTLE MORE ABOUT ME <ArrowDownRight size={16} /></a></div>
+        <div className="section-shell intro-inner" data-reveal><p className="eyebrow">THE SHORT VERSION</p><p className="intro-statement">I work at the intersection of <em>craft</em> and <em>systems</em> - shaping the experience people touch and the technology that makes it work.</p><a href="#about" className="text-link">A LITTLE MORE ABOUT ME <ArrowDownRight size={16} /></a></div>
       </section>
 
       <section className="work-section section-shell" id="work">
@@ -203,7 +206,7 @@ export default function Home() {
         <div className="section-shell contact-inner" data-reveal><p className="eyebrow"><span className="status-dot" /> HAVE A GOOD PROBLEM?</p><h2>Let&apos;s make<br /><em>something matter.</em></h2><p className="contact-note">A product to build, a team to join, or an idea that needs a technical partner. I&apos;m open to a conversation.</p><div className="contact-actions"><button className="primary-cta" onClick={copyEmail}>{copied ? <Check size={17} /> : <Mail size={17} />}{copied ? "EMAIL COPIED" : "GET IN TOUCH"}<ArrowUpRight size={16} /></button><a href="https://github.com/DIFoundation" target="_blank" rel="noreferrer" className="secondary-cta"><Github size={17} /> GITHUB <ArrowUpRight size={15} /></a><a href="https://www.linkedin.com/in/adeniran-ibrahim-adewale/" target="_blank" rel="noreferrer" className="secondary-cta"><Linkedin size={17} /> LINKEDIN <ArrowUpRight size={15} /></a></div><p className="email-line">adeniranibrahim165@gmail.com</p></div>
       </section>
 
-      <footer className="site-footer section-shell"><a className="wordmark" href="#top"><span className="wordmark-mark">IA<span>.</span></span></a><span>DESIGNED WITH INTENT. BUILT WITH CURIOSITY.</span><span>© {new Date().getFullYear()} IBRAHIM ADENIRAN</span><a href="#top" className="back-top">BACK TO TOP ↑</a></footer>
+      <footer className="site-footer section-shell"><a className="wordmark" href="#top"><span className="wordmark-mark">IA<span>.</span></span></a><span>DESIGNED WITH INTENT. BUILT WITH CURIOSITY.</span><span>© {currentYear} IBRAHIM ADENIRAN</span><a href="#top" className="back-top">BACK TO TOP ↑</a></footer>
 
       <AnimatePresence>
         {active && <motion.div className="modal-backdrop" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setActiveProject(null)}><motion.div className={`project-modal tone-${active.tone}`} initial={{ opacity: 0, y: 24, scale: .97 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 12, scale: .98 }} transition={{ duration: .25 }} onClick={event => event.stopPropagation()} role="dialog" aria-modal="true" aria-labelledby="modal-title"><button className="modal-close" onClick={() => setActiveProject(null)} aria-label="Close project details"><X size={20} /></button><p className="eyebrow">{active.category} / CASE {active.number}</p><div className="modal-symbol">{active.symbol}</div><h2 id="modal-title">{active.name}</h2><p className="modal-type">{active.type}</p><p className="modal-description">{active.description}</p><div className="tag-list">{active.stack.map(tag => <span key={tag}>{tag}</span>)}</div><div className="modal-actions"><a href={active.repo} target="_blank" rel="noreferrer">SOURCE REPOSITORY <ArrowUpRight size={16} /></a>{active.live && <a href={active.live} target="_blank" rel="noreferrer">OPEN LIVE PROJECT <ArrowUpRight size={16} /></a>}</div><p className="modal-footnote"><Sparkles size={14} /> Selected work evolves — reach out for context on implementation and trade-offs.</p></motion.div></motion.div>}
