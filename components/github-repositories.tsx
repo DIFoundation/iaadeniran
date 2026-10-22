@@ -107,7 +107,7 @@ export default function GitHubRepositories() {
         ) : (
           <div className="github-grid">
             {repositories.map((repository, index) => (
-              <article className="github-card" key={repository.id} data-reveal>
+              <article className="github-card" key={repository.id}>
                 <div className="github-card-top">
                   <span className="github-card-index">
                     {String(index + 1).padStart(2, "0")}
