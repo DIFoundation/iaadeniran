@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import GitHubRepositories from "@/components/github-repositories";
 import {
   AnimatePresence,
   motion,
@@ -372,6 +374,8 @@ export default function Home() {
           </a>
         </div>
       </section>
+
+      <GitHubRepositories />
 
       <section className="approach-section" id="approach">
         <div className="section-shell approach-inner">
