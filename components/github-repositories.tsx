@@ -10,7 +10,6 @@ type Repository = {
   full_name: string;
   description: string | null;
   html_url: string;
-  website: string | null;
   language: string | null;
   stargazers_count: number;
   forks_count: number;
@@ -153,8 +152,8 @@ export default function GitHubRepositories() {
                   VIEW REPOSITORY <ArrowUpRight size={15} />
                 </a>
                 <a
-                  className={`github-card-link ${repository.website as string ? '' : 'hidden'}`}
-                  href={repository.website!}
+                  className={`github-card-link ${!repository.homepage ? "github-card-link-disabled" : ""}`}
+                  href={repository.homepage || ""}
                   target="_blank"
                   rel="noreferrer"
                   aria-label={`View ${repository.full_name} on website`}

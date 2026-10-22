@@ -1619,6 +1619,10 @@ a:focus-visible {
 .github-card-link:hover svg {
   transform: translate(3px, -3px);
 }
+.github-card-link-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
 .github-footer {
   display: flex;
   align-items: center;

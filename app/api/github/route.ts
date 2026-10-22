@@ -6,7 +6,6 @@ type GitHubRepository = {
   full_name: string;
   description: string | null;
   html_url: string;
-  website: string | null;
   language: string | null;
   stargazers_count: number;
   forks_count: number;
@@ -24,7 +23,6 @@ type RepositoryCard = Pick<
   | "full_name"
   | "description"
   | "html_url"
-  | "website"
   | "language"
   | "stargazers_count"
   | "forks_count"
@@ -120,7 +118,6 @@ export async function GET() {
         full_name,
         description,
         html_url,
-        website,
         language,
         stargazers_count,
         forks_count,
@@ -133,7 +130,6 @@ export async function GET() {
         full_name,
         description,
         html_url,
-        website,
         language,
         stargazers_count,
         forks_count,
