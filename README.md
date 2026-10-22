@@ -38,6 +38,14 @@ Projects are configured in `app/page.tsx`. Review each repository and live URL b
 - ZPay-Roll — crypto payroll exploration.
 - IDRA — developer tooling / protocol and SDK exploration.
 
+## GitHub repositories integration
+
+The portfolio keeps its curated case studies and adds a separate live **More on GitHub** section. The server endpoint at `app/api/github/route.ts` combines public repositories from a personal account and the `DIFoundation` organization, deduplicates them, filters forks and archived repositories, and returns the eight most recently updated repositories. The response is cached for approximately one hour; the UI includes loading and unavailable states.
+
+Configure the personal GitHub username with `GITHUB_USERNAME` (defaults to `iaadeniran`). Optionally set `GITHUB_TOKEN` as a server-only environment variable to improve API rate limits. Never prefix the token with `NEXT_PUBLIC_` or expose it to the browser. Without a token, public repositories are fetched unauthenticated and may be subject to GitHub rate limits.
+
+Example local environment file: `.env.local` (see `.env.example`).
+
 ## Notes before launch
 
 - Confirm the preferred public URLs for StableSave and ZPay-Roll.
