@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap");
 
 :root{--bg:#090a08;--panel:#10120f;--panel-2:#151812;--text:#f0f1e9;--muted:#92968b;--line:rgba(240,241,233,.13);--lime:#c8ff55;--mono:'DM Mono',monospace;--display:'Space Grotesk',sans-serif;--body:'Manrope',sans-serif}
 *{box-sizing:border-box}

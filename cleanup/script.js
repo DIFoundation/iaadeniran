@@ -93,26 +93,6 @@ document.addEventListener("DOMContentLoaded", function () {
   setTimeout(type, typingSpeed);
 });
 
-function toggleText() {
-  let moreText = document.getElementById("moreText");
-  let btnText = document.getElementById("toggleBtn");
-
-  if (moreText.style.display === "none") {
-    moreText.style.display = "inline";
-    btnText.innerHTML = "Read less";
-  } else {
-    moreText.style.display = "none";
-    btnText.innerHTML = "Read more";
-  }
-}
-
-function openPopup(id) {
-  document.getElementById(id).style.display = "block";
-}
-
-function closePopup(id) {
-  document.getElementById(id).style.display = "none";
-}
 // Get the current year
 const currentYear = new Date().getFullYear();
 document.getElementById("CurrentYear").textContent = currentYear;
@@ -140,7 +120,7 @@ form.addEventListener("submit", function (e) {
         alert("Oops! Something went wrong.");
       }
     })
-    .catch((error) => {
+    .catch(() => {
       alert("There was an error sending your message.");
     });
 });
