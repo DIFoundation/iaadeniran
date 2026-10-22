@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import GitHubRepositories from "@/components/github-repositories";
 import {
   ArrowDownRight, ArrowRight, ArrowUpRight, Braces, Check, Code2, Github,
   Globe2, Layers3, Linkedin, Mail, Menu, MoveUpRight, ShieldCheck, Sparkles, X
@@ -185,6 +186,8 @@ export default function Home() {
         </div>
         <div className="work-end" data-reveal><span>MORE BUILDS. MORE LESSONS.</span><a href="https://github.com/DIFoundation" target="_blank" rel="noreferrer">Explore GitHub <ArrowUpRight size={16} /></a></div>
       </section>
+
+      <GitHubRepositories />
 
       <section className="approach-section" id="approach">
         <div className="section-shell approach-inner">
