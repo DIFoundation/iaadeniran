@@ -59,13 +59,18 @@ async function fetchRepositories(url: string): Promise<GitHubRepository[]> {
 }
 
 export async function GET() {
-  const personalUsername = process.env.GITHUB_USERNAME || "iaadeniran";
-  const personalUrl = new URL(
-    `https://api.github.com/users/${encodeURIComponent(personalUsername)}/repos`,
-  );
-  personalUrl.searchParams.set("type", "owner");
-  personalUrl.searchParams.set("sort", "updated");
-  personalUrl.searchParams.set("per_page", "100");
+  const personalUsername = process.env.GITHUB_USERNAME?.trim();
+  const personalRequest = personalUsername
+    ? (() => {
+        const personalUrl = new URL(
+          `https://api.github.com/users/${encodeURIComponent(personalUsername)}/repos`,
+        );
+        personalUrl.searchParams.set("type", "owner");
+        personalUrl.searchParams.set("sort", "updated");
+        personalUrl.searchParams.set("per_page", "100");
+        return fetchRepositories(personalUrl.toString());
+      })()
+    : Promise.reject(new Error("Set GITHUB_USERNAME to enable personal repositories."));
 
   const organizationUrl = new URL(
     "https://api.github.com/orgs/DIFoundation/repos",
@@ -75,7 +80,7 @@ export async function GET() {
   organizationUrl.searchParams.set("per_page", "100");
 
   const [personalResult, organizationResult] = await Promise.allSettled([
-    fetchRepositories(personalUrl.toString()),
+    personalRequest,
     fetchRepositories(organizationUrl.toString()),
   ]);
 
