@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ArrowUpRight, GitFork, Github, RefreshCw, Star } from "lucide-react";
+import Image from "next/image";
 
 type Repository = {
   id: number;
@@ -9,6 +10,7 @@ type Repository = {
   full_name: string;
   description: string | null;
   html_url: string;
+  website: string | null;
   language: string | null;
   stargazers_count: number;
   forks_count: number;
@@ -114,7 +116,18 @@ export default function GitHubRepositories() {
                   </span>
                   <Github size={18} strokeWidth={1.5} />
                 </div>
-                <p className="github-owner">{repository.owner.login} /</p>
+                <div className="github-owner-wrapper">
+                  <Image
+                    src={repository.owner.avatar_url}
+                    alt={repository.owner.login}
+                    width={24}
+                    height={24}
+                    className="github-owner-avatar"
+                  />
+                  <p className="github-owner">
+                    {repository.owner.login} /
+                  </p>
+                </div>
                 <h3>{repository.name}</h3>
                 <p className="github-description">
                   {repository.description || "A public repository. Open it on GitHub to explore the code and project details."}
@@ -138,6 +151,15 @@ export default function GitHubRepositories() {
                   aria-label={`View ${repository.full_name} on GitHub`}
                 >
                   VIEW REPOSITORY <ArrowUpRight size={15} />
+                </a>
+                <a
+                  className={`github-card-link ${repository.website as string ? '' : 'hidden'}`}
+                  href={repository.website!}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`View ${repository.full_name} on website`}
+                >
+                  VIEW WEBSITE <ArrowUpRight size={15} />
                 </a>
               </article>
             ))}

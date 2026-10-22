@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import GitHubRepositories from "@/components/github-repositories";
 import {
   AnimatePresence,
