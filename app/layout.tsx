@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import PortfolioAnalytics from "@/components/portfolio-analytics";
 
 const siteUrl = "https://iaadeniran.vercel.app";
 const siteTitle = "Ibrahim Adeniran — Frontend & Web3 Engineer";
@@ -61,7 +62,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en">
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <PortfolioAnalytics />
+      </body>
     </html>
   );
 }
