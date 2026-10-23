@@ -85,6 +85,42 @@ export default function Home() {
     return () => window.removeEventListener("scroll", reveal);
   }, []);
 
+  useEffect(() => {
+    if (!active) return;
+
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+    const dialog = document.querySelector<HTMLElement>("[data-project-dialog]");
+    const focusable = dialog?.querySelectorAll<HTMLElement>(
+      'button:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])',
+    );
+    focusable?.[0]?.focus();
+
+    const handleDialogKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setActiveProject(null);
+        return;
+      }
+
+      if (event.key !== "Tab" || !focusable?.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener("keydown", handleDialogKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleDialogKeyDown);
+      previouslyFocused?.focus();
+    };
+  }, [active]);
+
   const copyEmail = async () => {
     try {
       await navigator.clipboard.writeText("adeniranibrahim165@gmail.com");
@@ -115,6 +151,7 @@ export default function Home() {
         </a>
         <nav
           className={menuOpen ? "nav-links nav-open" : "nav-links"}
+          id="primary-navigation"
           aria-label="Main navigation"
         >
           {nav.map((item) => (
@@ -138,6 +175,8 @@ export default function Home() {
           className="mobile-menu"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+          aria-controls="primary-navigation"
         >
           {menuOpen ? <X /> : <Menu />}
         </button>
@@ -146,7 +185,7 @@ export default function Home() {
       <section className="hero section-shell" id="top">
         <div className="hero-topline">
           <span>
-            <i className="status-dot" /> AVAILABLE FOR SELECT PROJECTS
+            <i className="status-dot" /> OPEN TO FRONTEND & WEB3 OPPORTUNITIES
           </span>
           <span className="hero-index">PORTFOLIO / 2026</span>
         </div>
@@ -256,7 +295,7 @@ export default function Home() {
             SCROLL TO EXPLORE <span className="tiny-arrow">↓</span>
           </span>
           <span>DESIGN-LED ENGINEERING / 01—06</span>
-          <span className="hero-location">9°04&apos;N 7°29&apos;E</span>
+          <span className="hero-location">LAGOS, NIGERIA</span>
         </div>
       </section>
 
@@ -532,6 +571,7 @@ export default function Home() {
           >
             <motion.div
               className={`project-modal tone-${active.tone}`}
+              data-project-dialog
               initial={{ opacity: 0, y: 24, scale: 0.97 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 12, scale: 0.98 }}
@@ -559,6 +599,23 @@ export default function Home() {
                 {active.stack.map((tag) => (
                   <span key={tag}>{tag}</span>
                 ))}
+              </div>
+              <div className="case-study-details">
+                <section>
+                  <span>THE CHALLENGE</span>
+                  <p>{active.challenge}</p>
+                </section>
+                <section>
+                  <span>APPROACH</span>
+                  <p>{active.approach}</p>
+                </section>
+                <section>
+                  <span>ENGINEERING FOCUS</span>
+                  <p>{active.focus}</p>
+                </section>
+                <p className="case-study-status">
+                  <span>PROJECT STATUS</span> {active.status}
+                </p>
               </div>
               <div className="modal-actions">
                 <a href={active.repo} target="_blank" rel="noreferrer">
