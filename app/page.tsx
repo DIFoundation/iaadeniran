@@ -623,7 +623,7 @@ export default function Home() {
               </div>
               <div className="modal-actions">
                 <a href={active.repo} target="_blank" rel="noreferrer">
-                  SOURCE REPOSITORY <ArrowUpRight size={16} />
+                  {active.repoLabel ?? "SOURCE REPOSITORY"} <ArrowUpRight size={16} />
                 </a>
                 {active.live && (
                   <a href={active.live} target="_blank" rel="noreferrer">
