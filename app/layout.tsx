@@ -1,22 +1,54 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
+const siteUrl = "https://iaadeniran.vercel.app";
+const siteTitle = "Ibrahim Adeniran — Frontend & Web3 Engineer";
+const siteDescription =
+  "Ibrahim Adeniran builds thoughtful web interfaces, wallet-connected applications, and on-chain products.";
+
 export const metadata: Metadata = {
-  title: "Ibrahim Adeniran — Frontend & Web3 Engineer",
-  description:
-    "Ibrahim Adeniran builds expressive digital products, modern web experiences, and on-chain systems.",
-  metadataBase: new URL("https://iaadeniran.vercel.app"),
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: siteTitle,
+    template: "%s | Ibrahim Adeniran",
+  },
+  description: siteDescription,
+  applicationName: "Ibrahim Adeniran Portfolio",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Ibrahim Adeniran — Frontend & Web3 Engineer",
-    description: "Interfaces with intent. On-chain systems with purpose.",
-    url: "https://iaadeniran.vercel.app",
+    title: siteTitle,
+    description: siteDescription,
+    url: siteUrl,
     siteName: "Ibrahim Adeniran",
+    locale: "en_NG",
     type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Ibrahim Adeniran — Frontend and Web3 Engineer",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ibrahim Adeniran — Frontend & Web3 Engineer",
-    description: "Interfaces with intent. On-chain systems with purpose.",
+    title: siteTitle,
+    description: siteDescription,
+    images: ["/opengraph-image"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 };
 
