@@ -28,6 +28,7 @@ import {
   X,
 } from "lucide-react";
 import { projects } from "@/lib/featuredProjects";
+import Link from "next/link";
 
 const expertise = [
   {
@@ -156,21 +157,21 @@ export default function Home() {
           aria-label="Main navigation"
         >
           {nav.map((item) => (
-            <a
+            <Link
               key={item.href}
               href={item.href}
               onClick={() => setMenuOpen(false)}
             >
               {item.label}
-            </a>
+            </Link>
           ))}
-          <a
+          <Link
             className="nav-contact"
             href="#contact"
             onClick={() => setMenuOpen(false)}
           >
             Let&apos;s talk <ArrowUpRight size={15} />
-          </a>
+          </Link>
         </nav>
         <button
           className="mobile-menu"
@@ -588,9 +589,9 @@ export default function Home() {
         </a>
         <span>DESIGNED WITH INTENT. BUILT WITH CURIOSITY.</span>
         <span>© {currentYear} IBRAHIM ADENIRAN</span>
-        <a href="/cv" className="back-top">
+        <Link href="/cv" className="back-top">
           VIEW CV ↗
-        </a>
+        </Link>
         <a href="#top" className="back-top">
           BACK TO TOP ↑
         </a>

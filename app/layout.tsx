@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 const siteUrl = "https://iaadeniran.vercel.app";
-const siteTitle = "Ibrahim Adeniran — Frontend & Web3 Engineer";
+const siteTitle = "Ibrahim Adeniran | Frontend & Web3 Engineer";
 const siteDescription =
   "Ibrahim Adeniran builds thoughtful web interfaces, wallet-connected applications, and on-chain products.";
 
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Ibrahim Adeniran — Frontend and Web3 Engineer",
+        alt: "Ibrahim Adeniran | Frontend and Web3 Engineer",
       },
     ],
   },
