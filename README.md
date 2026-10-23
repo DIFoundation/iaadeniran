@@ -26,6 +26,7 @@ pnpm start
 - Cinematic hero motion, orbital identity graphic, scroll progress, and responsive navigation.
 - Curated project cards with expanded case-study context: challenge, approach, engineering focus, and project status.
 - A separate **More on GitHub** section with cached public repository data.
+- A dedicated, print-ready CV at `/cv` with a browser Save as PDF workflow.
 - Keyboard-accessible project dialogs with Escape-to-close, focus trapping, and focus restoration.
 - Generated Open Graph image, canonical metadata, responsive layouts, and reduced-motion support.
 - Contact links for email, GitHub, and LinkedIn.
@@ -56,8 +57,8 @@ See `.env.example` for the template. If `GITHUB_USERNAME` is unset, the section 
 
 ## Before public launch
 
-- Set `GITHUB_USERNAME` and optionally `GITHUB_TOKEN` in the deployment environment.
-- Confirm whether to publish a downloadable CV. The current CV contains personal contact details, so it should not be exposed publicly without approval.
+- Confirm `GITHUB_USERNAME` is configured in the deployment environment; add `GITHUB_TOKEN` only if higher API rate limits are needed.
+- Keep the public CV current and review contact details before sharing the link widely.
 - Replace the CSS-generated project artwork with real screenshots or short product recordings where available.
 - Verify the availability statement and every live/demo URL.
 - Run `pnpm lint` and `pnpm build`, then review desktop and mobile layouts before merging.
