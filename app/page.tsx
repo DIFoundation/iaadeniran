@@ -521,10 +521,14 @@ export default function Home() {
             technical partner. I&apos;m open to a conversation.
           </p>
           <div className="contact-actions">
-            <button className="primary-cta" onClick={copyEmail}>
-              {copied ? <Check size={17} /> : <Mail size={17} />}
-              {copied ? "EMAIL COPIED" : "GET IN TOUCH"}
+            <a className="primary-cta" href="mailto:adeniranibrahim165@gmail.com">
+              <Mail size={17} />
+              EMAIL ME
               <ArrowUpRight size={16} />
+            </a>
+            <button className="secondary-cta" onClick={copyEmail}>
+              {copied ? <Check size={17} /> : <Mail size={17} />}
+              {copied ? "EMAIL COPIED" : "COPY EMAIL"}
             </button>
             <a
               href="https://github.com/DIFoundation"
@@ -543,7 +547,7 @@ export default function Home() {
               <Linkedin size={17} /> LINKEDIN <ArrowUpRight size={15} />
             </a>
           </div>
-          <p className="email-line">adeniranibrahim165@gmail.com</p>
+          <a className="email-line" href="mailto:adeniranibrahim165@gmail.com">adeniranibrahim165@gmail.com</a>
         </div>
       </section>
 
