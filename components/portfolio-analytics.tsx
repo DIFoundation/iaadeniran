@@ -9,7 +9,7 @@ declare global {
     umami?: {
       track: (
         eventName: string,
-        eventData?: Record<string, string | number | boolean>,
+        eventData?: Record<string, string | number | boolean | undefined>,
       ) => void;
     };
   }
@@ -80,7 +80,7 @@ export default function PortfolioAnalytics() {
   useEffect(() => {
     const handleClick = (event: MouseEvent) => {
       const target = event.target;
-      if (!(target instanceof Element)) return;
+      if (!(target instanceof HTMLElement)) return;
 
       const tracked = getClickEvent(target);
       if (tracked) window.umami?.track(tracked.name, tracked.data);
