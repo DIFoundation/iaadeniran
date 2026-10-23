@@ -453,6 +453,31 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
+          <div className="system-map" data-reveal aria-label="A typical product architecture">
+            <div className="system-map-heading">
+              <p className="eyebrow">FROM INTERFACE TO EXECUTION</p>
+              <span>HOW THE PIECES CONNECT</span>
+            </div>
+            <div className="system-map-flow">
+              <div className="system-map-node">
+                <span>01 / EXPERIENCE</span>
+                <strong>Frontend</strong>
+                <p>Responsive UI, wallet state, accessible feedback.</p>
+              </div>
+              <ArrowRight className="system-map-arrow" size={20} aria-hidden="true" />
+              <div className="system-map-node">
+                <span>02 / INTEGRATION</span>
+                <strong>Application layer</strong>
+                <p>API boundaries, validation, loading and error states.</p>
+              </div>
+              <ArrowRight className="system-map-arrow" size={20} aria-hidden="true" />
+              <div className="system-map-node">
+                <span>03 / EXECUTION</span>
+                <strong>Contracts & data</strong>
+                <p>On-chain rules, persistence, and access control.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
