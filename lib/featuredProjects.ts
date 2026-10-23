@@ -55,6 +55,7 @@ export const projects = [
     status: "Frontend Developer role / ongoing product work",
     stack: ["Next.js", "TypeScript", "Gemini API"],
     repo: "https://github.com/DIFoundation",
+    repoLabel: "BROWSE DIFOUNDATION",
     live: "https://faucetdrops.io/",
     tone: "orange",
     symbol: "✳",
