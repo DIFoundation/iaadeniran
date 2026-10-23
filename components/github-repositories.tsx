@@ -36,12 +36,13 @@ export default function GitHubRepositories() {
   const [unavailable, setUnavailable] = useState(false);
   const [sources, setSources] = useState({ personal: false, organization: false });
 
-  const sourceDescription =
-    sources.personal && sources.organization
+  const sourceDescription = loading
+    ? "Fetching recent public repositories from my GitHub account and DIFoundation. Featured case studies stay curated above."
+    : sources.personal && sources.organization
       ? "A live snapshot of public repositories across my personal account and DIFoundation. Featured case studies stay curated above."
       : sources.personal
         ? "A live snapshot of public repositories from my personal account. Featured case studies stay curated above."
-        : "Public repositories from DIFoundation are shown here. Configure GITHUB_USERNAME to include my personal account. Featured case studies stay curated above.";
+        : "Public repositories from DIFoundation are shown here. Confirm GITHUB_USERNAME is configured in the deployment environment to include my personal account. Featured case studies stay curated above.";
 
   useEffect(() => {
     const controller = new AbortController();

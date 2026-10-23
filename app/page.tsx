@@ -57,6 +57,7 @@ const nav = [
   { label: "Work", href: "#work" },
   { label: "Approach", href: "#approach" },
   { label: "About", href: "#about" },
+  { label: "CV", href: "/cv" },
 ];
 
 export default function Home() {
@@ -571,6 +572,9 @@ export default function Home() {
             >
               <Linkedin size={17} /> LINKEDIN <ArrowUpRight size={15} />
             </a>
+            <a href="/cv" className="secondary-cta">
+              VIEW / DOWNLOAD CV <ArrowUpRight size={15} />
+            </a>
           </div>
           <a className="email-line" href="mailto:adeniranibrahim165@gmail.com">adeniranibrahim165@gmail.com</a>
         </div>
@@ -584,6 +588,9 @@ export default function Home() {
         </a>
         <span>DESIGNED WITH INTENT. BUILT WITH CURIOSITY.</span>
         <span>© {currentYear} IBRAHIM ADENIRAN</span>
+        <a href="/cv" className="back-top">
+          VIEW CV ↗
+        </a>
         <a href="#top" className="back-top">
           BACK TO TOP ↑
         </a>
