@@ -163,7 +163,7 @@ export default function GitHubRepositories() {
                     href={repository.homepage}
                     target="_blank"
                     rel="noreferrer"
-                    aria-label={\`View \${repository.full_name} website\`}
+                    aria-label={`View ${repository.full_name} website`}
                   >
                     VIEW WEBSITE <ArrowUpRight size={15} />
                   </a>

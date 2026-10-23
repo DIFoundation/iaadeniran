@@ -187,7 +187,7 @@ export default function Home() {
           <span>
             <i className="status-dot" /> OPEN TO FRONTEND & WEB3 OPPORTUNITIES
           </span>
-          <span className="hero-index">PORTFOLIO / 2026</span>
+          <span className="hero-index">PORTFOLIO / {currentYear}</span>
         </div>
         <div className="hero-grid">
           <div className="hero-copy">
