@@ -2,6 +2,7 @@
 
 import Script from "next/script";
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 declare global {
   interface Window {
@@ -35,7 +36,7 @@ function getClickEvent(target: HTMLElement) {
   const href = anchor.getAttribute("href") ?? "";
 
   if (href === "/cv" || href.startsWith("/cv?")) {
-    return { name: "cv_view", data: { source: window.location.pathname } };
+    return { name: "cv_click", data: { source: window.location.pathname } };
   }
 
   if (href.startsWith("mailto:")) {
@@ -70,10 +71,16 @@ function getClickEvent(target: HTMLElement) {
 }
 
 export default function PortfolioAnalytics() {
+  const pathname = usePathname();
+
+  useEffect(() => {
+    if (pathname === "/cv") window.umami?.track("cv_view");
+  }, [pathname]);
+
   useEffect(() => {
     const handleClick = (event: MouseEvent) => {
       const target = event.target;
-      if (!(target instanceof HTMLElement)) return;
+      if (!(target instanceof Element)) return;
 
       const tracked = getClickEvent(target);
       if (tracked) window.umami?.track(tracked.name, tracked.data);
