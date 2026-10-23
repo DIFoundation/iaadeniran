@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ArrowUpRight, GitFork, Github, RefreshCw, Star } from "lucide-react";
+import { ArrowUpRight, GitFork, Github, Star } from "lucide-react";
 import Image from "next/image";
 
 type Repository = {
@@ -34,6 +34,14 @@ export default function GitHubRepositories() {
   const [repositories, setRepositories] = useState<Repository[]>([]);
   const [loading, setLoading] = useState(true);
   const [unavailable, setUnavailable] = useState(false);
+  const [sources, setSources] = useState({ personal: false, organization: false });
+
+  const sourceDescription =
+    sources.personal && sources.organization
+      ? "A live snapshot of public repositories across my personal account and DIFoundation. Featured case studies stay curated above."
+      : sources.personal
+        ? "A live snapshot of public repositories from my personal account. Featured case studies stay curated above."
+        : "Public repositories from DIFoundation are shown here. Configure GITHUB_USERNAME to include my personal account. Featured case studies stay curated above.";
 
   useEffect(() => {
     const controller = new AbortController();
@@ -47,6 +55,7 @@ export default function GitHubRepositories() {
 
         const data = (await response.json()) as RepositoryResponse;
         setRepositories(data.repositories ?? []);
+        setSources(data.sources ?? { personal: false, organization: false });
         setUnavailable(false);
       } catch {
         if (!controller.signal.aborted) setUnavailable(true);
@@ -67,10 +76,7 @@ export default function GitHubRepositories() {
             <p className="eyebrow">OPEN SOURCE / LIVE FROM GITHUB</p>
             <h2>More on <em>GitHub.</em></h2>
           </div>
-          <p className="section-note">
-            A live snapshot of public repositories across my personal account
-            and DIFoundation. Featured case studies stay curated above.
-          </p>
+          <p className="section-note">{sourceDescription}</p>
         </div>
 
         {loading ? (
@@ -151,15 +157,17 @@ export default function GitHubRepositories() {
                 >
                   VIEW REPOSITORY <ArrowUpRight size={15} />
                 </a>
-                <a
-                  className={`github-card-link ${!repository.homepage ? "github-card-link-disabled" : ""}`}
-                  href={repository.homepage || ""}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={`View ${repository.full_name} on website`}
-                >
-                  VIEW WEBSITE <ArrowUpRight size={15} />
-                </a>
+                {repository.homepage && (
+                  <a
+                    className="github-card-link"
+                    href={repository.homepage}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={\`View \${repository.full_name} website\`}
+                  >
+                    VIEW WEBSITE <ArrowUpRight size={15} />
+                  </a>
+                )}
               </article>
             ))}
           </div>
