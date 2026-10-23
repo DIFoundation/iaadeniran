@@ -1823,3 +1823,80 @@ a:focus-visible {
     gap: 14px;
   }
 }
+
+/* Compact architecture showcase */
+.system-map {
+  grid-column: 1 / -1;
+  margin-top: 22px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  background: linear-gradient(120deg, #0d100b, #12160e);
+}
+.system-map-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+.system-map-heading .eyebrow {
+  margin: 0;
+}
+.system-map-heading > span {
+  color: #7f8874;
+  font: 8px var(--mono);
+  letter-spacing: 0.8px;
+}
+.system-map-flow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 22px minmax(0, 1fr) 22px minmax(0, 1fr);
+  align-items: stretch;
+  gap: 14px;
+}
+.system-map-node {
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid #c8ff5525;
+  background: #090b08;
+}
+.system-map-node > span {
+  display: block;
+  color: var(--lime);
+  font: 8px var(--mono);
+  letter-spacing: 0.7px;
+  margin-bottom: 14px;
+}
+.system-map-node strong {
+  display: block;
+  font: 500 16px var(--display);
+  letter-spacing: -0.3px;
+}
+.system-map-node p {
+  color: #9ba394;
+  font-size: 10px;
+  line-height: 1.8;
+  margin: 10px 0 0;
+}
+.system-map-arrow {
+  align-self: center;
+  color: var(--lime);
+}
+@media (max-width: 700px) {
+  .system-map {
+    padding: 18px;
+    margin-top: 6px;
+  }
+  .system-map-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .system-map-flow {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .system-map-arrow {
+    justify-self: center;
+    transform: rotate(90deg);
+  }
+}
