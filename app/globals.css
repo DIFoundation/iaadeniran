@@ -1900,3 +1900,110 @@ a:focus-visible {
     transform: rotate(90deg);
   }
 }
+
+
+/* Readability pass: make useful content comfortable at normal zoom.
+   Tiny labels inside the decorative artwork remain intentionally secondary. */
+body {
+  font-size: 16px;
+}
+.wordmark-caption { font-size: 10px; }
+.nav-links > a:not(.nav-contact) { font-size: 13px; }
+.nav-contact { font-size: 11px; }
+.hero-topline,
+.hero-footer { font-size: 10px; }
+.eyebrow { font-size: 12px; }
+.hero-copy .eyebrow { font-size: 12px; }
+.hero-bottom p { font-size: 15px; }
+.text-link { font-size: 12px; }
+.section-note {
+  font-size: 15px;
+  color: #b7bdb0;
+}
+.project-type { font-size: 10px; }
+.project-description {
+  font-size: 15px;
+  color: #c0c5b9;
+}
+.tag-list span { font-size: 10px; }
+.project-links button,
+.project-links a { font-size: 11px; }
+.work-end { font-size: 10px; }
+.approach-intro > p:last-child {
+  font-size: 15px;
+  color: #b7bdb0;
+}
+.expertise-number { font-size: 11px; }
+.expertise-copy p {
+  font-size: 14px;
+  color: #c0c5b9;
+}
+.expertise-copy span { font-size: 10px; }
+.about-copy > p {
+  font-size: 15px;
+  color: #c0c5b9;
+}
+.experience-strip strong { font-size: 12px; }
+.experience-strip small { font-size: 10px; }
+.contact-note {
+  font-size: 15px;
+  color: #263319;
+}
+.primary-cta,
+.secondary-cta { font-size: 11px; }
+.email-line { font-size: 12px; }
+.site-footer { font-size: 10px; }
+.modal-type { font-size: 14px; }
+.modal-description {
+  font-size: 15px;
+  line-height: 1.9;
+}
+.modal-actions a,
+.modal-actions button { font-size: 11px; }
+.github-owner { font-size: 10px; }
+.github-description {
+  font-size: 14px;
+  line-height: 1.75;
+  color: #c0c5b9;
+}
+.github-meta { font-size: 11px; }
+.github-card-link { font-size: 11px; }
+.github-state p {
+  font-size: 14px;
+  color: #c0c5b9;
+}
+.github-footer { font-size: 10px; }
+.case-study-details section > span,
+.case-study-status > span { font-size: 10px; }
+.case-study-details section p {
+  font-size: 14px;
+  color: #c0c5b9;
+}
+.case-study-status { font-size: 12px; }
+.system-map-heading > span { font-size: 10px; }
+.system-map-node > span { font-size: 10px; }
+.system-map-node p {
+  font-size: 14px;
+  color: #c0c5b9;
+}
+
+@media (max-width: 700px) {
+  .wordmark-caption { font-size: 9px; }
+  .hero-topline,
+  .hero-footer { font-size: 9px; }
+  .hero-copy .eyebrow { font-size: 11px; }
+  .hero-bottom p { font-size: 14px; }
+  .section-note { font-size: 14px; }
+  .project-description { font-size: 14px; }
+  .project-links button,
+  .project-links a { font-size: 10px; }
+  .expertise-copy p { font-size: 14px; }
+  .expertise-copy span { font-size: 10px; }
+  .about-copy > p { font-size: 14px; }
+  .contact-note { font-size: 14px; }
+  .primary-cta,
+  .secondary-cta { font-size: 10px; }
+  .github-description { font-size: 14px; }
+  .case-study-details section p { font-size: 14px; }
+  .system-map-node p { font-size: 14px; }
+}
