@@ -21,14 +21,14 @@ import {
   Layers3,
   Linkedin,
   Mail,
-  Menu,
   MoveUpRight,
   ShieldCheck,
   Sparkles,
   X,
 } from "lucide-react";
 import { projects } from "@/lib/featuredProjects";
-import Link from "next/link";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 const expertise = [
   {
@@ -54,15 +54,7 @@ const expertise = [
   },
 ];
 
-const nav = [
-  { label: "Work", href: "#work" },
-  { label: "Approach", href: "#approach" },
-  { label: "About", href: "#about" },
-  { label: "CV", href: "/cv" },
-];
-
 export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [activeProject, setActiveProject] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
   const [currentYear, setCurrentYear] = useState(2026);
@@ -140,49 +132,8 @@ export default function Home() {
         style={{ scaleX: progressScale }}
       />
       <div className="film-grain" aria-hidden="true" />
-      <header className="site-header">
-        <a className="wordmark" href="#top" aria-label="Ibrahim Adeniran home">
-          <span className="wordmark-mark">
-            IA<span>.</span>
-          </span>
-          <span className="wordmark-caption">
-            INDEPENDENT DEVELOPER
-            <br />
-            LAGOS, NIGERIA
-          </span>
-        </a>
-        <nav
-          className={menuOpen ? "nav-links nav-open" : "nav-links"}
-          id="primary-navigation"
-          aria-label="Main navigation"
-        >
-          {nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={() => setMenuOpen(false)}
-            >
-              {item.label}
-            </Link>
-          ))}
-          <Link
-            className="nav-contact"
-            href="#contact"
-            onClick={() => setMenuOpen(false)}
-          >
-            Let&apos;s talk <ArrowUpRight size={15} />
-          </Link>
-        </nav>
-        <button
-          className="mobile-menu"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
-          aria-expanded={menuOpen}
-          aria-controls="primary-navigation"
-        >
-          {menuOpen ? <X /> : <Menu />}
-        </button>
-      </header>
+      
+      <Header />
 
       <section className="hero section-shell" id="top">
         <div className="hero-topline">
@@ -581,21 +532,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="site-footer section-shell">
-        <a className="wordmark" href="#top">
-          <span className="wordmark-mark">
-            IA<span>.</span>
-          </span>
-        </a>
-        <span>DESIGNED WITH INTENT. BUILT WITH CURIOSITY.</span>
-        <span>© {currentYear} IBRAHIM ADENIRAN</span>
-        <Link href="/cv" className="back-top">
-          VIEW CV ↗
-        </Link>
-        <a href="#top" className="back-top">
-          BACK TO TOP ↑
-        </a>
-      </footer>
+      <Footer />
 
       <AnimatePresence>
         {active && (

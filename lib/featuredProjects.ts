@@ -15,6 +15,7 @@ export const projects = [
     status: "Product in active development",
     stack: ["Next.js", "Supabase", "RLS", "Web3"],
     repo: "https://github.com/DIFoundation/VaultMedics",
+    live: "https://vaultmedics-ai.vercel.app/",
     tone: "mint",
     symbol: "◈",
     featured: true
