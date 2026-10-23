@@ -1767,3 +1767,59 @@ a:focus-visible {
     transition: none;
   }
 }
+
+/* Accessible, scrollable case-study dialog */
+.project-modal {
+  max-height: min(88vh, 820px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-color: #59604c #0e100c;
+}
+.case-study-details {
+  display: grid;
+  gap: 18px;
+  margin-top: 26px;
+}
+.case-study-details section {
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+.case-study-details section > span,
+.case-study-status > span {
+  display: block;
+  margin-bottom: 9px;
+  color: var(--tone);
+  font: 8px var(--mono);
+  letter-spacing: 1.1px;
+}
+.case-study-details section p {
+  margin: 0;
+  color: #b4bbac;
+  font-size: 11px;
+  line-height: 1.9;
+}
+.case-study-status {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding-top: 15px;
+  border-top: 1px solid var(--line);
+  color: #e1e6d9;
+  font-size: 10px;
+  line-height: 1.8;
+}
+.case-study-status > span {
+  display: inline;
+  margin: 0;
+}
+@media (max-width: 700px) {
+  .project-modal {
+    max-height: calc(100dvh - 24px);
+    padding: 30px 24px;
+  }
+  .case-study-details {
+    gap: 14px;
+  }
+}
